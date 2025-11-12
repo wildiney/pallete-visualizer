@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  box-sizing: border-box;
+}
+html, body{
+  min-height: 100%;
+  background-color: #1e1e1e;
+}
+main{
+  margin: 0 auto;
+}
