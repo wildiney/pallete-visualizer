@@ -1,6 +1,6 @@
 # 🎨 Palette Visualizer
 
-Uma aplicação web moderna para visualizar e analisar paletas de cores de forma interativa e intuitiva.
+Uma aplicação web para visualizar e analisar paletas de cores de forma interativa e intuitiva.
 
 ## 📋 Sobre o Projeto
 
