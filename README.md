@@ -1,59 +1,120 @@
-# PalleteVisualizer
+# 🎨 Palette Visualizer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
+Uma aplicação web moderna para visualizar e analisar paletas de cores de forma interativa e intuitiva.
 
-## Development server
+## 📋 Sobre o Projeto
 
-To start a local development server, run:
+O **Palette Visualizer** é uma ferramenta desenvolvida em Angular 20 que permite:
 
-```bash
-ng serve
+- **Importar paletas de cores** via JSON
+- **Visualizar cores em um espaço HSL** (matiz, saturação, luminosidade)
+- **Analisar a distribuição de cores** através de gráficos visuais
+- **Desenhar curvas de interpolação** entre cores usando splines Catmull-Rom e Bézier
+
+A aplicação converte cores hexadecimais para o espaço HSL, calcula a matiz média da paleta e renderiza um plano bidimensional interativo que mostra como as cores se distribuem em relação à saturação e luminosidade.
+
+## 🚀 Começando
+
+### Pré-requisitos
+
+- Node.js 20+
+- pnpm
+
+### Instalação
+
+`bash
+pnpm install
+`
+
+### Servidor de Desenvolvimento
+
+Para iniciar o servidor local:
+
+`bash
+pnpm start
+`
+
+A aplicação estará disponível em <http://localhost:4200/>. O navegador recarregará automaticamente quando você modificar os arquivos.
+
+### Como Usar
+
+1. Prepare um JSON com suas paletas de cores no formato:
+
+```json
+{
+  "palettes": {
+    "primary": {
+      "50": "#f5f3ff",
+      "100": "#ede9fe",
+      "200": "#ddd6fe"
+    },
+    "secondary": {
+      "50": "#fef2f2",
+      "100": "#fee2e2"
+    }
+  }
+}
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```json
+{
+  "shell-colors": {
+    "yellow": {
+      "base": "#FFD500",
+      "tint80": "#FFE14C",
+      "tint60": "#FFEF99",
+      "tint40": "#FFFCD1",
+      "tint20": "#FFFFF2"
+    },
+    "red": {
+      "base": "#ED1C24",
+      "tint80": "#F53B3F",
+      "tint60": "#F98E8F",
+      "tint40": "#FDCBCB",
+      "tint20": "#FFEAEA"
+    }
+  }
+}
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. Cole o JSON na aplicação
+3. Clique em "Gerar" para visualizar as paletas
 
-```bash
-ng generate --help
-```
+## 🏗️ Estrutura do Projeto
 
-## Building
+`
+src/
+├── app/
+│   ├── app.ts              # Componente raiz
+│   ├── app.routes.ts       # Configuração de rotas
+│   └── pallete-visualizer/ # Componente principal
+│       ├── pallete-visualizer.ts
+│       ├── pallete-visualizer.html
+│       └── pallete-visualizer.scss
+`
 
-To build the project run:
+## 🛠️ Scripts Disponíveis
 
-```bash
-ng build
-```
+- pnpm start - Inicia o servidor de desenvolvimento
+- pnpm build - Compila para produção
+- pnpm watch - Compila em modo watch
+- pnpm test - Executa testes unitários
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📦 Tecnologias
 
-## Running unit tests
+- **Angular 20** - Framework web moderno
+- **TypeScript** - Linguagem tipada
+- **Canvas API** - Renderização dos gráficos
+- **SCSS** - Estilização
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## ✨ Features Principais
 
-```bash
-ng test
-```
+- ✅ Parsing de JSON de paletas
+- ✅ Renderização de espaço HSL em Canvas
+- ✅ Cálculo de matiz média circular
+- ✅ Interpolação com curvas Catmull-Rom e Bézier
+- ✅ Interface responsiva e intuitiva
 
-## Running end-to-end tests
+## 📄 Licença
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este projeto está disponível sob licença MIT.
