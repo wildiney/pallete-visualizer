@@ -14,9 +14,9 @@ export class PalleteVisualizer {
 
   @ViewChild('resultado') result!: ElementRef<HTMLDivElement>;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2) { }
 
-  generate() {
+  generate () {
     const out = this.result?.nativeElement;
     if (!out) return;
 
@@ -47,7 +47,7 @@ export class PalleteVisualizer {
     });
   }
 
-  private desenharPaleta(
+  private desenharPaleta (
     nome: string,
     colors: Record<string, string>,
     out: HTMLElement
@@ -69,10 +69,17 @@ export class PalleteVisualizer {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // 1) Calcular matiz médio da paleta
+    // 1) Calcular matiz médio da paleta (usando média circular)
     const hsls = Object.values(colors).map((hex) => this.hexToHsl(hex));
-    const meanHue =
-      hsls.reduce((sum, hsl) => sum + hsl.h, 0) / (hsls.length || 1);
+    let sumSin = 0;
+    let sumCos = 0;
+    hsls.forEach((hsl) => {
+      const rad = (hsl.h * Math.PI) / 180;
+      sumSin += Math.sin(rad);
+      sumCos += Math.cos(rad);
+    });
+    let meanHue = Math.atan2(sumSin, sumCos) * (180 / Math.PI);
+    if (meanHue < 0) meanHue += 360;
 
     // 2) Desenhar plano HSL (branco → preto)
     for (let y = 0; y < h; y++) {
@@ -184,7 +191,7 @@ export class PalleteVisualizer {
   }
 
   // utilitários
-  private hexToHsl(hex: string) {
+  private hexToHsl (hex: string) {
     hex = hex.replace('#', '');
     const bigint = parseInt(hex, 16);
     const r = ((bigint >> 16) & 255) / 255;
@@ -216,7 +223,7 @@ export class PalleteVisualizer {
     return { h, s: s * 100, l: l * 100 };
   }
 
-  private roundRect(
+  private roundRect (
     ctx: CanvasRenderingContext2D,
     x: number,
     y: number,
