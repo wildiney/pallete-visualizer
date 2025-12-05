@@ -1,4 +1,4 @@
-name: Deploy Pallete Visualizer
+name: Deploy Pallete Visualizer to GitHub Pages
 
 on:
   push:
