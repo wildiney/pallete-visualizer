@@ -1,11 +1,11 @@
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-pallete-visualizer',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './pallete-visualizer.html',
   styleUrls: ['./pallete-visualizer.scss'],
 })
