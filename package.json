@@ -21,6 +21,12 @@
     ]
   },
   "private": true,
+  "pnpm": {
+    "overrides": {
+      "minimatch": "^3.1.5",
+      "brace-expansion": "^1.1.13"
+    }
+  },
   "dependencies": {
     "@angular/common": "^21.2.7",
     "@angular/compiler": "^21.2.7",
