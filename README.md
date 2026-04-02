@@ -4,7 +4,7 @@ Uma aplicação web para visualizar e analisar paletas de cores de forma interat
 
 ## 📋 Sobre o Projeto
 
-O **Palette Visualizer** é uma ferramenta desenvolvida em Angular 20 que permite:
+O **Palette Visualizer** é uma ferramenta que permite:
 
 - **Importar paletas de cores** via JSON
 - **Visualizar cores em um espaço HSL** (matiz, saturação, luminosidade)
